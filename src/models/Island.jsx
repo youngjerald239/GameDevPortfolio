@@ -29,7 +29,7 @@ const Island = (props) => {
   );
   return (
     <a.group ref={islandRef} {...props}>
-      <group scale={0.01}>
+      <group scale={0.015}>
         <group
           position={[-3108.8078613, -320.712616, 900.1256104]}
           rotation={[-Math.PI / 2, 0, Math.PI]}

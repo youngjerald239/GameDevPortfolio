@@ -57,7 +57,7 @@ const Home = () => {
         <Suspense fallback={<Loader />}>
           <directionalLight  postion={[1, 1, 1]} intensity={1}/>
           <ambientLight intensity={-4}/>
-          <pointLight postion={[1, 1, 1]} intensity={5000}/>
+          <pointLight postion={[1, 1, 1]} intensity={800}/>
           <hemisphereLight skyColor="#b1e1ff" groundColor="#b1e1ff" intensity={1}/>
           <Plane 
                      
@@ -71,9 +71,10 @@ const Home = () => {
             setIsRotating={setIsRotating}
           />
           <Hovercar 
-            
+            isRotating={isRotating}
             hovercarScale={hovercarScale}
             hovercarPosition={hovercarPosition}
+            rotation={[0, 20, 0]}
           />
         </Suspense>
       </Canvas>
