@@ -32,7 +32,24 @@ const Home = () => {
     return [screenScale, screenPosition, rotation]
   }
 
+  const adjustHovercarForScreenSize = () => {
+    let screenScale, screenPosition
+    
+
+    if(window.innerWidth < 768) {
+      screenScale = [1.5, 1.5, 1.5]
+      screenPosition = [0, -1.5, 0]
+    } else 
+    {
+      screenScale = [3, 2, 2]
+      screenPosition=[0, -4, -4]
+    }
+    
+    return [screenScale, screenPosition]
+  }
+
   const [islandScale, islandPosition, islandRotation] = adjustIslandForScreenSize()
+  const [hovercarScale, hovercarPosition, ] = adjustHovercarForScreenSize()
 
   return (
     <section className="w-full h-screen relative">
@@ -42,14 +59,22 @@ const Home = () => {
           <ambientLight intensity={-4}/>
           <pointLight postion={[1, 1, 1]} intensity={5000}/>
           <hemisphereLight skyColor="#b1e1ff" groundColor="#b1e1ff" intensity={1}/>
-          <Plane /> 
+          <Plane 
+                     
+          /> 
           <Sky />
           <Island 
             position={islandPosition}
             scale={islandScale}
             rotation={islandRotation}
+            isRotating={isRotating}
+            setIsRotating={setIsRotating}
           />
-          <Hovercar />
+          <Hovercar 
+            
+            hovercarScale={hovercarScale}
+            hovercarPosition={hovercarPosition}
+          />
         </Suspense>
       </Canvas>
     </section>
